@@ -1,3 +1,7 @@
+import React from 'react';
+//import { ThemeProvider, theme, CSSReset, Box } from '@chakra-ui/core';
+import { ChakraProvider } from '@chakra-ui/react';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -11,3 +15,11 @@ export const parameters = {
       a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
   },
 }
+
+export const decorators = [
+  (story) => (
+    <ChakraProvider>
+      {(story())}
+    </ChakraProvider>
+  )
+]
